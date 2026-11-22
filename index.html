@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أمل حسن الشيزري | ذكاء اصطناعي وتقنية معلومات</title>
+  <link href="https://googleapis.com" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafcff;
+      --surface: #ffffff;
+      --soft-tint: #f0f7ff;
+      --soft-mint: #eefbf7;
+      --primary: #1e3a5f;
+      --accent: #2b8cbe;
+      --accent-light: #e0f2fe;
+      --text: #2c3e50;
+      --muted: #64748b;
+      --border: #e2ecf5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.9rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    .brand-badge {
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid #bae6fd;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .print-btn {
+      background: var(--soft-tint);
+      color: var(--primary);
+      border: 1px solid #cbe3f9;
+      padding: 0.45rem 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    .print-btn:hover {
+      background: var(--accent-light);
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .hero {
+      padding: 4.2rem 0 3.2rem;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .tag-line {
+      display: inline-block;
+      background: var(--accent-light);
+      color: #0369a1;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .subtitle {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 0.75rem 1.4rem;
+      border-radius: 10px;
+      font-weight: 700;
+      box-shadow: 0 6px 16px rgba(43, 140, 190, 0.2);
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #21739e;
+    }
+
+    .btn-outline {
+      background: var(--surface);
+      color: var(--primary);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 0.75rem 1.3rem;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      background: var(--soft-tint);
+    }
+
+    .profile-card {
+      background: linear-gradient(145deg, #ffffff 0%, #f0f8ff 100%);
+      color: var(--primary);
+      padding: 2rem;
+      border-radius: 20px;
+      border: 1px solid #d5e8f8;
+      box-shadow: 0 15px 30px rgba(43, 140, 190, 0.08);
+    }
+
+    .profile-card-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.8rem;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+
+    .profile-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.3rem;
+      color: var(--primary);
+    }
+
+    .profile-card .role {
+      color: var(--accent);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .chip {
+      background: #ffffff;
+      border: 1px solid #d5e8f8;
+      color: var(--primary);
+      padding: 0.3rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .card-contact-info {
+      font-size: 0.88rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+
+    section {
+      padding: 3.5rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .sec-num {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    .sec-title {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .sec-desc {
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.7rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(30, 58, 95, 0.03);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(43, 140, 190, 0.08);
+      border-color: #bae6fd;
+    }
+
+    .card-code {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .card h3 {
+      color: var(--primary);
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .badge-date {
+      display: inline-block;
+      margin-top: 0.8rem;
+      background: var(--soft-tint);
+      color: var(--primary);
+      padding: 0.25rem 0.7rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .contact-banner {
+      background: linear-gradient(135deg, #f0f8ff 0%, #eefbf7 100%);
+      color: var(--primary);
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      border: 1px solid #d5e8f8;
+      text-align: center;
+    }
+
+    .contact-banner h2 {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary);
+    }
+
+    .contact-banner p {
+      color: var(--muted);
+      max-width: 550px;
+      margin: 0 auto 1.8rem;
+    }
+
+    footer {
+      background: #ffffff;
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media print {
+      header, .hero-actions, .print-btn {
+        display: none !important;
+      }
+      body {
+        background: #fff;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="brand-badge">أ</div>
+      <span>أمل حسن الشيزري</span>
+    </div>
+    <nav>
+      <a href="#about">نبذة</a>
+      <a href="#skills">المهارات</a>
+      <a href="#certificates">الشهادات والتميز</a>
+      <a href="#projects">المشاريع</a>
+      <a href="#contact">التواصل</a>
+      <button class="print-btn" onclick="window.print()">طباعة / PDF</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="hero">
+      <div>
+        <span class="tag-line">AI · PYTHON & C++ · UI/UX · DIGITAL SOLUTIONS</span>
+        <h1>أمل حسن الشيزري</h1>
+        <div class="subtitle">تخصص الذكاء الاصطناعي — كلية الحاسبات وتقنية المعلومات</div>
+        <p>طالبة متفوقة في كلية الحاسبات وتقنية المعلومات بالجامعة الإسلامية بمنيسوتا (IUM)، أجمع بين مبادئ الذكاء الاصطناعي، البرمجة بلغة Python و C++، تصميم واجهات UI/UX، وحاصلة على شهادة التميز في التطبيقات المكتبية والرقمية من مايكروسوفت.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me" target="_blank" class="btn-primary">تواصل عبر WhatsApp</a>
+          <a href="mailto:amoool.shezare@icloud.com" class="btn-outline">مراسلة عبر البريد</a>
+          <button class="btn-outline" onclick="copyText('0541828072', 'رقم الجوال')">نسخ الرقم</button>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-card-top">
+          <span>DIGITAL CV / 2026</span>
+          <span>IUM · IT COLLEGE</span>
+        </div>
+        <h3>أمل حسن الشيزري</h3>
+        <div class="role">ذكاء اصطناعي · برمجة · تطبيقات مايكروسوفت</div>
+        <div class="chips">
+          <span class="chip">Artificial Intelligence</span>
+          <span class="chip">Python & C++</span>
+          <span class="chip">UI/UX Design</span>
+          <span class="chip">Cybersecurity</span>
+          <span class="chip">Microsoft Office</span>
+        </div>
+        <div class="card-contact-info">
+          <div>واتساب: <strong style="color: var(--primary);">0541828072</strong></div>
